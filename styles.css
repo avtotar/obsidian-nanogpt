@@ -1,0 +1,470 @@
+/* NanoGPT Chat Sidebar Styles - Modern "Pro" UI */
+
+.nanogpt-chat-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--background-primary);
+  font-family: var(--font-interface);
+  --input-bg: var(--background-primary-alt);
+  --input-border: var(--background-modifier-border);
+  --accent-color: var(--interactive-accent);
+}
+
+/* Header / Toolbar */
+.nanogpt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--background-modifier-border);
+  background-color: var(--background-primary);
+  z-index: 10;
+}
+
+.nanogpt-model-picker-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: transparent;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-normal);
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.nanogpt-model-picker-btn:hover {
+  background-color: var(--background-modifier-hover);
+}
+
+.nanogpt-model-name {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nanogpt-model-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background-color: var(--background-modifier-hover);
+  color: var(--text-muted);
+}
+
+.nanogpt-header-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.nanogpt-chat-mode-toggle {
+  display: flex;
+  gap: 4px;
+  padding: 2px;
+  border-radius: 8px;
+  background-color: var(--background-modifier-hover);
+}
+
+.nanogpt-mode-btn {
+  background: transparent;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.nanogpt-mode-btn.is-active {
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.nanogpt-icon-btn {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  border-radius: 4px;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nanogpt-icon-btn:hover {
+  color: var(--text-normal);
+  background-color: var(--background-modifier-hover);
+}
+
+.nanogpt-icon-btn.is-active {
+  color: var(--interactive-accent);
+  background-color: var(--background-modifier-hover);
+}
+
+/* Chat Messages Area */
+.nanogpt-chat-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  scroll-behavior: smooth;
+}
+
+.nanogpt-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-muted);
+  gap: 12px;
+  opacity: 0.6;
+}
+
+/* Message Styles */
+.nanogpt-message {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 100%;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.nanogpt-message-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+  min-height: 20px;
+}
+
+.nanogpt-message-role {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-left: 2px;
+}
+
+.nanogpt-message-actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.nanogpt-message:hover .nanogpt-message-actions {
+  opacity: 1;
+}
+
+.nanogpt-msg-btn {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  border-radius: 4px;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  width: 24px;
+}
+
+.nanogpt-msg-btn:hover {
+  color: var(--text-normal);
+  background-color: var(--background-modifier-hover);
+}
+
+.nanogpt-user {
+  align-items: flex-end;
+}
+
+.nanogpt-user .nanogpt-message-content {
+  background-color: var(--background-secondary-alt);
+  color: var(--text-normal);
+  padding: 10px 14px;
+  border-radius: 12px;
+  border-top-right-radius: 2px;
+  max-width: 90%;
+}
+
+.nanogpt-assistant .nanogpt-message-content {
+  padding: 0 2px;
+  color: var(--text-normal);
+  max-width: 100%;
+}
+
+/* Markdown Content Styling within Chat */
+.nanogpt-message-content p {
+  margin-bottom: 1em;
+}
+.nanogpt-message-content p:last-child {
+  margin-bottom: 0;
+}
+.nanogpt-message-content code {
+  background-color: var(--background-modifier-code);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--text-accent);
+}
+.nanogpt-message-content pre {
+  background-color: var(--background-primary-alt);
+  padding: 10px;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 8px 0;
+}
+
+.nanogpt-search-status,
+.nanogpt-edit-status {
+  font-size: 0.8em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.nanogpt-ghost-text {
+  color: var(--text-muted);
+  opacity: 0.55;
+  font-style: italic;
+}
+
+/* Input Area */
+.nanogpt-input-container {
+  padding: 16px;
+  background-color: var(--background-primary);
+  border-top: 1px solid var(--background-modifier-border);
+}
+
+.nanogpt-input-wrapper {
+  position: relative;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  padding: 10px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.nanogpt-input-wrapper:focus-within {
+  border-color: var(--background-modifier-border-focus);
+  box-shadow: 0 0 0 2px var(--background-modifier-border-focus);
+}
+
+.nanogpt-input-wrapper textarea {
+  background: transparent;
+  border: none;
+  resize: none;
+  padding: 0;
+  min-height: 24px;
+  max-height: 200px;
+  width: 100%;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.nanogpt-input-wrapper textarea:focus {
+  box-shadow: none;
+  border: none;
+}
+
+.nanogpt-input-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.nanogpt-context-indicator {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nanogpt-send-btn {
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.nanogpt-send-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Model Picker Dropdown */
+.nanogpt-model-picker-dropdown {
+  position: absolute;
+  top: 50px;
+  left: 16px;
+  width: 280px;
+  max-height: 400px;
+  background-color: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.nanogpt-model-search {
+  padding: 8px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.nanogpt-model-search input {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--background-modifier-border);
+  background-color: var(--background-primary-alt);
+}
+
+.nanogpt-model-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 0;
+}
+
+.nanogpt-model-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nanogpt-model-item-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nanogpt-model-item:hover {
+  background-color: var(--background-modifier-hover);
+}
+
+.nanogpt-model-item.selected {
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.nanogpt-model-item.selected .nanogpt-model-badge {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-on-accent);
+}
+
+.nanogpt-model-item-name {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.nanogpt-model-item-desc {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Loading/Typing Indicator */
+.nanogpt-typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 4px 0;
+}
+.nanogpt-dot {
+  width: 4px;
+  height: 4px;
+  background-color: var(--text-muted);
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+.nanogpt-dot:nth-child(1) { animation-delay: -0.32s; }
+.nanogpt-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+/* Modal specific overrides */
+.nanogpt-image-modal,
+.nanogpt-websearch-modal,
+.nanogpt-edit-modal {
+  padding: 20px;
+}
+.nanogpt-image-result,
+.nanogpt-websearch-result,
+.nanogpt-edit-preview {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  background: var(--background-secondary);
+}
+
+.nanogpt-edit-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.nanogpt-edit-inline-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.nanogpt-edit-preview-modal {
+  padding: 20px;
+}
+
+.nanogpt-edit-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.nanogpt-edit-preview-pane {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  padding: 12px;
+  background: var(--background-primary);
+  overflow: auto;
+  max-height: 50vh;
+}
+
+.nanogpt-edit-preview-body {
+  font-size: 0.85rem;
+  color: var(--text-normal);
+}

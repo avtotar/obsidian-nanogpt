@@ -1,0 +1,10 @@
+{
+  "id": "obsidian-nanogpt",
+  "name": "NanoGPT Assistant",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "Integrate NanoGPT's AI capabilities into Obsidian with chat, text generation, image generation, web search, and note completion",
+  "author": "0xGingi",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}
